@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JUEGO - Products</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg-black: #000000;
+            --panel-dark: #1a1a1a;
+            --text-main: #f0e6d2;
+            --text-accent: #c9ada7;
+            --text-muted: #9a8c98;
+            --highlight: #f2e9e4;
+            --neon-g: #00ff00; /* Neon green for text-neon-g */
+        }
+
+        .bg-black-full {
+            background-color: var(--bg-black);
+        }
+
+        .bg-panel {
+            background-color: var(--panel-dark);
+        }
+
+        .text-main {
+            color: var(--text-main);
+        }
+
+        .text-accent {
+            color: var(--text-accent);
+        }
+
+        .text-muted {
+            color: var(--text-muted);
+        }
+
+        .text-highlight {
+            color: var(--highlight);
+        }
+
+        .btn-vintage {
+            background-color: var(--text-accent);
+            color: var(--bg-black);
+            transition: all 0.3s ease;
+        }
+
+        .btn-vintage:hover {
+            background-color: var(--bg-black);
+            color: var(--text-accent);
+            box-shadow: 0 0 10px var(--text-accent);
+        }
+
+        .bd-accent {
+            border-color: var(--text-accent);
+        }
+
+        .shadow-vintage:hover {
+            box-shadow: 0 0 10px var(--text-accent), 0 0 20px var(--text-accent);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Simplified hover effects for mobile */
+        @media (max-width: 767px) {
+            .group:hover .group-hover\:opacity-0 {
+                opacity: 1 !important;
+            }
+
+            .group:hover .group-hover\:opacity-100 {
+                opacity: 0 !important;
+            }
+
+            /* Ensure game card text is always visible on mobile */
+            .game-card-text {
+                opacity: 1 !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-black-full text-main p-2 sm:p-3 md:p-4 min-h-screen font-sans">
+    <!-- Navbar -->
+    <nav class="bg-panel p-3 sm:p-4 rounded-xl flex justify-between items-center shadow-lg z-50">
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-accent tracking-wide">JUEGO</h1>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="w-6 h-6 text-accent cursor-pointer md:hidden"
+            id="menu-toggle">
+            <path fill="currentColor" fill-rule="evenodd"
+                d="M2 3.75A.75.75 0 0 1 2.75 3h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 3.75ZM2 8a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 8Zm0 4.25a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z"
+                clip-rule="evenodd" />
+        </svg>
+        <ul class="hidden md:flex gap-6" id="nav-menu">
+            <li><a href="../index.html" class="text-accent hover:text-blue-300 transition">Home</a></li>
+            <li><a href="./products.html" class="text-accent hover:text-blue-300 transition">Product</a></li>
+            <li><a href="../page/contact.html" class="text-accent hover:text-blue-300 transition">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Products Section -->
+    <section class="mt-8 sm:mt-12 md:mt-20 px-2 sm:px-6 md:px-20 z-20">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-neon-g text-center mb-6 sm:mb-8 md:mb-10">Our Games</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 relative overflow-visible">
+            <!-- Game Card: Red Dead Redemption 2 -->
+            <div
+                class="relative w-full max-w-[280px] sm:max-w-[300px] md:max-w-[324px] h-[420px] sm:h-[450px] md:h-[486px] mx-auto">
+                <div
+                    class="group absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-panel rounded-xl overflow-hidden transition-all duration-300 md:duration-500 hover:md:w-[460px] hover:md:h-[500px] hover:md:z-50">
+                    <img src="../assets/rdr2p.jpg" alt="RDR2 Portrait"
+                        class="w-full h-full object-cover transition-opacity duration-300 md:duration-500 group-hover:opacity-0"
+                        loading="lazy" />
+                    <img src="../assets/rdr2.jpg" alt="RDR2 Landscape"
+                        class="absolute top-0 left-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500"
+                        loading="lazy" />
+                    <div
+                        class="game-card-text absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-green-300 p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500">
+                        <h3 class="text-neon-g text-lg sm:text-xl font-bold">Red Dead Redemption 2</h3>
+                        <p class="text-xs sm:text-sm italic">Live the outlaw life in a vast wild west world.</p>
+                        <p class="text-yellow-400 font-semibold mt-1">$59.99</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Game Card: Call of Duty: Black Ops 6 -->
+            <div
+                class="relative w-full max-w-[280px] sm:max-w-[300px] md:max-w-[324px] h-[420px] sm:h-[450px] md:h-[486px] mx-auto">
+                <div
+                    class="group absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-panel rounded-xl overflow-hidden transition-all duration-300 md:duration-500 hover:md:w-[460px] hover:md:h-[500px] hover:md:z-50">
+                    <img src="../assets/bo6p.jpg" alt="COD Portrait"
+                        class="w-full h-full object-cover transition-opacity duration-300 md:duration-500 group-hover:opacity-0"
+                        loading="lazy" />
+                    <img src="../assets/bo6.jpg" alt="COD Landscape"
+                        class="absolute top-0 left-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500"
+                        loading="lazy" />
+                    <div
+                        class="game-card-text absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-green-300 p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500">
+                        <h3 class="text-neon-g text-lg sm:text-xl font-bold">Call of Duty: Black Ops 6</h3>
+                        <p class="text-xs sm:text-sm italic">High-octane covert warfare across global hotspots.</p>
+                        <p class="text-yellow-400 font-semibold mt-1">$69.99</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Game Card: Detroit Become Human -->
+            <div
+                class="relative w-full max-w-[280px] sm:max-w-[300px] md:max-w-[324px] h-[420px] sm:h-[450px] md:h-[486px] mx-auto">
+                <div
+                    class="group absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-panel rounded-xl overflow-hidden transition-all duration-300 md:duration-500 hover:md:w-[460px] hover:md:h-[500px] hover:md:z-50">
+                    <img src="../assets/detroitp.jpg" alt="Detroit Portrait"
+                        class="w-full h-full object-cover transition-opacity duration-300 md:duration-500 group-hover:opacity-0"
+                        loading="lazy" />
+                    <img src="../assets/detroit.jpg" alt="Detroit Landscape"
+                        class="absolute top-0 left-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500"
+                        loading="lazy" />
+                    <div
+                        class="game-card-text absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-green-300 p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500">
+                        <h3 class="text-neon-g text-lg sm:text-xl font-bold">Detroit: Become Human</h3>
+                        <p class="text-xs sm:text-sm italic">Shape the future in a world of androids and choices.</p>
+                        <p class="text-yellow-400 font-semibold mt-1">$29.99</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Game Card: God of War Ragnarök -->
+            <div
+                class="relative w-full max-w-[280px] sm:max-w-[300px] md:max-w-[324px] h-[420px] sm:h-[450px] md:h-[486px] mx-auto">
+                <div
+                    class="group absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-panel rounded-xl overflow-hidden transition-all duration-300 md:duration-500 hover:md:w-[460px] hover:md:h-[500px] hover:md:z-50">
+                    <img src="../assets/gowrp.jpg" alt="GOW Portrait"
+                        class="w-full h-full object-cover transition-opacity duration-300 md:duration-500 group-hover:opacity-0"
+                        loading="lazy" />
+                    <FACILITATE
+                    <img src="../assets/gow.jpg" alt="GOW Landscape"
+                        class="absolute top-0 left-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500"
+                        loading="lazy" />
+                    <div
+                        class="game-card-text absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-green-300 p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500">
+                        <h3 class="text-neon-g text-lg sm:text-xl font-bold">God of War: Ragnarök</h3>
+                        <p class="text-xs sm:text-sm italic">Clash with gods across Norse realms in an epic saga.</p>
+                        <p class="text-yellow-400 font-semibold mt-1">$49.99</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Game Card: Cyberpunk 2077 -->
+            <div
+                class="relative w-full max-w-[280px] sm:max-w-[300px] md:max-w-[324px] h-[420px] sm:h-[450px] md:h-[486px] mx-auto">
+                <div
+                    class="group absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-panel rounded-xl overflow-hidden transition-all duration-300 md:duration-500 hover:md:w-[460px] hover:md:h-[500px] hover:md:z-50">
+                    <img src="../assets/cbpp.jpg" alt="Cyberpunk Portrait"
+                        class="w-full h-full object-cover transition-opacity duration-300 md:duration-500 group-hover:opacity-0"
+                        loading="lazy" />
+                    <img src="../assets/cbp.jpg" alt="Cyberpunk Landscape"
+                        class="absolute top-0 left-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500"
+                        loading="lazy" />
+                    <div
+                        class="game-card-text absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-green-300 p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500">
+                        <h3 class="text-neon-g text-lg sm:text-xl font-bold">Cyberpunk 2077</h3>
+                        <p class="text-xs sm:text-sm italic">Dive into a neon-lit open-world dystopia.</p>
+                        <p class="text-yellow-400 font-semibold mt-1">$59.99</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Game Card: Elden Ring -->
+            <div
+                class="relative w-full max-w-[280px] sm:max-w-[300px] md:max-w-[324px] h-[420px] sm:h-[450px] md:h-[486px] mx-auto">
+                <div
+                    class="group absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-panel rounded-xl overflow-hidden transition-all duration-300 md:duration-500 hover:md:w-[460px] hover:md:h-[500px] hover:md:z-50">
+                    <img src="../assets/eldrp.jpg" alt="Elden Ring Portrait"
+                        class="w-full h-full object-cover transition-opacity duration-300 md:duration-500 group-hover:opacity-0"
+                        loading="lazy" />
+                    <img src="../assets/eldr.jpg" alt="Elden Ring Landscape"
+                        class="absolute top-0 left-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500"
+                        loading="lazy" />
+                    <div
+                        class="game-card-text absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-green-300 p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500">
+                        <h3 class="text-neon-g text-lg sm:text-xl font-bold">Elden Ring</h3>
+                        <p class="text-xs sm:text-sm italic">Explore a vast fantasy world of myth and danger.</p>
+                        <p class="text-yellow-400 font-semibold mt-1">$59.99</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Game Card: The Witcher 3 -->
+            <div
+                class="relative w-full max-w-[280px] sm:max-w-[300px] md:max-w-[324px] h-[420px] sm:h-[450px] md:h-[486px] mx-auto">
+                <div
+                    class="group absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-panel rounded-xl overflow-hidden transition-all duration-300 md:duration-500 hover:md:w-[460px] hover:md:h-[500px] hover:md:z-50">
+                    <img src="../assets/wicp.jpg" alt="Witcher 3 Portrait"
+                        class="w-full h-full object-cover transition-opacity duration-300 md:duration-500 group-hover:opacity-0"
+                        loading="lazy" />
+                    <img src="../assets/wic.jpg" alt="Witcher 3 Landscape"
+                        class="absolute top-0 left-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500"
+                        loading="lazy" />
+                    <div
+                        class="game-card-text absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-green-300 p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500">
+                        <h3 class="text-neon-g text-lg sm:text-xl font-bold">The Witcher 3: Wild Hunt</h3>
+                        <p class="text-xs sm:text-sm italic">Hunt monsters in a rich, story-driven open world.</p>
+                        <p class="text-yellow-400 font-semibold mt-1">$39.99</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Game Card: Horizon Forbidden West -->
+            <div
+                class="relative w-full max-w-[280px] sm:max-w-[300px] md:max-w-[324px] h-[420px] sm:h-[450px] md:h-[486px] mx-auto">
+                <div
+                    class="group absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-panel rounded-xl overflow-hidden transition-all duration-300 md:duration-500 hover:md:w-[460px] hover:md:h-[500px] hover:md:z-50">
+                    <img src="../assets/hrsp.jpg" alt="Horizon Portrait"
+                        class="w-full h-full object-cover transition-opacity duration-300 md:duration-500 group-hover:opacity-0"
+                        loading="lazy" />
+                    <img src="../assets/hrs.jpg" alt="Horizon Landscape"
+                        class="absolute top-0 left-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500"
+                        loading="lazy" />
+                    <div
+                        class="game-card-text absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-green-300 p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500">
+                        <h3 class="text-neon-g text-lg sm:text-xl font-bold">Horizon Forbidden West</h3>
+                        <p class="text-xs sm:text-sm italic">Battle machines in a lush, post-apocalyptic world.</p>
+                        <p class="text-yellow-400 font-semibold mt-1">$49.99</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Game Card: Assassin's Creed Valhalla -->
+            <div
+                class="relative w-full max-w-[280px] sm:max-w-[300px] md:max-w-[324px] h-[420px] sm:h-[450px] md:h-[486px] mx-auto">
+                <div
+                    class="group absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-panel rounded-xl overflow-hidden transition-all duration-300 md:duration-500 hover:md:w-[460px] hover:md:h-[500px] hover:md:z-50">
+                    <img src="../assets/acp.jpg" alt="AC Valhalla Portrait"
+                        class="w-full h-full object-cover transition-opacity duration-300 md:duration-500 group-hover:opacity-0"
+                        loading="lazy" />
+                    <img src="../assets/ac.jpg" alt="AC Valhalla Landscape"
+                        class="absolute top-0 left-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500"
+                        loading="lazy" />
+                    <div
+                        class="game-card-text absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-green-300 p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500">
+                        <h3 class="text-neon-g text-lg sm:text-xl font-bold">Assassin's Creed Valhalla</h3>
+                        <p class="text-xs sm:text-sm italic">Raid and conquer in a Viking saga.</p>
+                        <p class="text-yellow-400 font-semibold mt-1">$49.99</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Game Card: Spider-Man Miles Morales -->
+            <div
+                class="relative w-full max-w-[280px] sm:max-w-[300px] md:max-w-[324px] h-[420px] sm:h-[450px] md:h-[486px] mx-auto">
+                <div
+                    class="group absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-panel rounded-xl overflow-hidden transition-all duration-300 md:duration-500 hover:md:w-[460px] hover:md:h-[500px] hover:md:z-50">
+                    <img src="../assets/smmmp.jpg" alt="Spider-Man Portrait"
+                        class="w-full h-full object-cover transition-opacity duration-300 md:duration-500 group-hover:opacity-0"
+                        loading="lazy" />
+                    <img src="../assets/smmm.jpg" alt="Spider-Man Landscape"
+                        class="absolute top-0 left-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500"
+                        loading="lazy" />
+                    <div
+                        class="game-card-text absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-green-300 p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500">
+                        <h3 class="text-neon-g text-lg sm:text-xl font-bold">Spider-Man: Miles Morales</h3>
+                        <p class="text-xs sm:text-sm italic">Swing through New York as a new hero.</p>
+                        <p class="text-yellow-400 font-semibold mt-1">$39.99</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Game Card: Ghost of Tsushima -->
+            <div
+                class="relative w-full max-w-[280px] sm:max-w-[300px] md:max-w-[324px] h-[420px] sm:h-[450px] md:h-[486px] mx-auto">
+                <div
+                    class="group absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-panel rounded-xl overflow-hidden transition-all duration-300 md:duration-500 hover:md:w-[460px] hover:md:h-[500px] hover:md:z-50">
+                    <img src="../assets/gotp.jpg" alt="Tsushima Portrait"
+                        class="w-full h-full object-cover transition-opacity duration-300 md:duration-500 group-hover:opacity-0"
+                        loading="lazy" />
+                    <img src="../assets/got.jpg" alt="Tsushima Landscape"
+                        class="absolute top-0 left-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500"
+                        loading="lazy" />
+                    <div
+                        class="game-card-text absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-green-300 p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500">
+                        <h3 class="text-neon-g text-lg sm:text-xl font-bold">Ghost of Tsushima</h3>
+                        <p class="text-xs sm:text-sm italic">Fight as a samurai to reclaim your home.</p>
+                        <p class="text-yellow-400 font-semibold mt-1">$49.99</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Game Card: Resident Evil Village -->
+            <div
+                class="relative w-full max-w-[280px] sm:max-w-[300px] md:max-w-[324px] h-[420px] sm:h-[450px] md:h-[486px] mx-auto">
+                <div
+                    class="group absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-panel rounded-xl overflow-hidden transition-all duration-300 md:duration-500 hover:md:w-[460px] hover:md:h-[500px] hover:md:z-50">
+                    <img src="../assets/revp.jpg" alt="Resident Evil Portrait"
+                        class="w-full h-full object-cover transition-opacity duration-300 md:duration-500 group-hover:opacity-0"
+                        loading="lazy" />
+                    <img src="../assets/rev.jpg" alt="Resident Evil Landscape"
+                        class="absolute top-0 left-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500"
+                        loading="lazy" />
+                    <div
+                        class="game-card-text absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-green-300 p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500">
+                        <h3 class="text-neon-g text-lg sm:text-xl font-bold">Resident Evil Village</h3>
+                        <p class="text-xs sm:text-sm italic">Survive horrors in a chilling gothic world.</p>
+                        <p class="text-yellow-400 font-semibold mt-1">$39.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-panel mt-8 sm:mt-12 p-4 sm:p-6 text-green-400 text-center rounded-xl">
+        <div>
+            <h3 class="text-lg sm:text-xl font-bold text-neon-g">JUEGO</h3>
+            <p class="text-xs sm:text-sm">Level up. Every day.</p>
+            <div class="mt-2 sm:mt-4 text-xs text-green-500">© 2025 JUEGO. Built for gamers, by gamers. All rights
+                reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile menu
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+            menu.classList.toggle('flex-col');
+            menu.classList.toggle('absolute');
+            menu.classList.toggle('top-12');
+            menu.classList.toggle('left-0');
+            menu.classList.toggle('bg-panel');
+            menu.classList.toggle('w-full');
+            menu.classList.toggle('p-4');
+        });
+    </script>
+</body>
+
+</html>

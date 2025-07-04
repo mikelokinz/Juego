@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JUEGO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg-black: #000000;
+            --panel-dark: #1a1a1a;
+            --text-main: #f0e6d2;
+            --text-accent: #c9ada7;
+            --text-muted: #9a8c98;
+            --highlight: #f2e9e4;
+        }
+
+        .bg-black-full {
+            background-color: var(--bg-black);
+        }
+
+        .bg-panel {
+            background-color: var(--panel-dark);
+        }
+
+        .text-main {
+            color: var(--text-main);
+        }
+
+        .text-accent {
+            color: var(--text-accent);
+        }
+
+        .text-muted {
+            color: var(--text-muted);
+        }
+
+        .text-highlight {
+            color: var(--highlight);
+        }
+
+        .btn-vintage {
+            background-color: var(--text-accent);
+            color: var(--bg-black);
+            transition: all 0.3s ease;
+        }
+
+        .btn-vintage:hover {
+            background-color: var(--bg-black);
+            color: var(--text-accent);
+            box-shadow: 0 0 10px var(--text-accent);
+        }
+
+        .bd-accent {
+            border-color: var(--text-accent);
+        }
+
+        .shadow-vintage:hover {
+            box-shadow: 0 0 10px var(--text-accent), 0 0 20px var(--text-accent);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Simplified hover effects for mobile */
+        @media (max-width: 767px) {
+            .group:hover .group-hover\:opacity-0 {
+                opacity: 1 !important;
+            }
+
+            .group:hover .group-hover\:opacity-100 {
+                opacity: 0 !important;
+            }
+
+            /* Ensure game card text is always visible on mobile */
+            .game-card-text {
+                opacity: 1 !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-black-full text-main p-2 sm:p-3 md:p-4 min-h-screen font-sans">
+    <!-- Navbar -->
+    <nav class="bg-panel p-3 sm:p-4 rounded-xl flex justify-between items-center shadow-lg z-20">
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-accent tracking-wide">JUEGO</h1>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="w-6 h-6 text-accent cursor-pointer md:hidden"
+            id="menu-toggle">
+            <path fill="currentColor" fill-rule="evenodd"
+                d="M2 3.75A.75.75 0 0 1 2.75 3h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 3.75ZM2 8a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 8Zm0 4.25a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z"
+                clip-rule="evenodd" />
+        </svg>
+        <ul class="hidden md:flex gap-6" id="nav-menu">
+            <li><a href="./index.html" class="text-accent hover:text-blue-300 transition">Home</a></li>
+            <li><a href="./page/products.html" class="text-accent hover:text-blue-300 transition">Product</a></li>
+            <li><a href="./page/contact.html" class="text-accent hover:text-blue-300 transition">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+        class="bg-panel mt-4 sm:mt-8 p-4 sm:p-6 md:p-12 rounded-2xl shadow-2xl flex flex-col md:flex-row justify-evenly items-center gap-4 sm:gap-8">
+        <div class="text-center md:text-left">
+            <p class="text-accent text-sm sm:text-base md:text-lg mb-2">Gaming is not a hobby, it's a lifestyle</p>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-accent mb-6">Game on</h1>
+            <div class="flex flex-wrap gap-3 sm:gap-4 mb-4 justify-center md:justify-start">
+                <button class="btn-vintage text-sm sm:text-base md:text-lg font-bold px-5 md:px-6 py-3 rounded-xl">Buy
+                    JUEGO</button>
+                <button
+                    class="text-accent border-2 bd-accent font-bold px-5 md:px-6 py-3 rounded-xl hover:bg-accent hover:text-black shadow-vintage">Learn
+                    more</button>
+            </div>
+            <p class="text-highlight text-sm">2 Billion gamers worldwide 🌍</p>
+        </div>
+        <img src="./assets/warzone.jpg" alt="Warzone Poster"
+            class="w-full max-w-2xl rounded-xl shadow-lg hidden md:block" loading="lazy" />
+    </section>
+
+    <!-- About Us Section -->
+    <section class="bg-panel mt-6 sm:mt-10 p-4 sm:p-6 md:p-12 rounded-2xl shadow-lg text-green-200">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-neon-g mb-3 sm:mb-4">About Us</h2>
+            <p class="text-sm sm:text-base md:text-lg">
+                At <span class="text-neon-g font-bold">JUEGO</span>, we don’t just play games — we live them.
+                Our mission is to bring the most immersive, electrifying, and community-driven gaming experiences
+                to the world. Whether you're a casual button-masher or a hardcore competitive player,
+                JUEGO is your ultimate arena.
+            </p>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="bg-panel mt-6 sm:mt-10 py-6 sm:py-8 md:py-12 px-2 sm:px-4 md:px-20 text-green-300">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-center">
+            <div class="bg-panel p-4 sm:p-5 md:p-6 rounded-xl shadow-md hover:shadow-neon-g transition">
+                <h3 class="text-lg sm:text-xl font-bold text-neon-g mb-1 sm:mb-2">Elite Performance</h3>
+                <p class="text-xs sm:text-sm md:text-base">Powered by lightning-fast servers and optimized matchmaking,
+                    we make every second count.</p>
+            </div>
+            <div class="bg-panel p-4 sm:p-5 md:p-6 rounded-xl shadow-md hover:shadow-neon-g transition">
+                <h3 class="text-lg sm:text-xl font-bold text-neon-g mb-1 sm:mb-2">Global Community</h3>
+                <p class="text-xs sm:text-sm md:text-base">Connect with millions of players across the globe, join
+                    clans, compete in real-time tournaments.</p>
+            </div>
+            <div class="bg-panel p-4 sm:p-5 md:p-6 rounded-xl shadow-md hover:shadow-neon-g transition">
+                <h3 class="text-lg sm:text-xl font-bold text-neon-g mb-1 sm:mb-2">Immersive Graphics</h3>
+                <p class="text-xs sm:text-sm md:text-base">Experience ultra-realistic visuals and jaw-dropping effects —
+                    built for next-gen gamers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top AAA Games Section -->
+    <section class="mt-8 sm:mt-12 md:mt-20 px-2 sm:px-6 md:px-20">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-neon-g text-center mb-6 sm:mb-8 md:mb-10">Top AAA</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 relative overflow-visible">
+            <!-- Game Card: RDR2 -->
+            <div
+                class="relative w-full max-w-[280px] sm:max-w-[300px] md:max-w-[324px] h-[420px] sm:h-[450px] md:h-[486px] mx-auto">
+                <div
+                    class="group absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-panel rounded-xl overflow-hidden transition-all duration-300 md:duration-500 hover:md:w-[460px] hover:md:h-[500px] hover:md:z-50">
+                    <img src="./assets/rdr2p.jpg" alt="RDR2 Portrait"
+                        class="w-full h-full object-cover transition-opacity duration-300 md:duration-500 group-hover:opacity-0"
+                        loading="lazy" />
+                    <img src="./assets/rdr2.jpg" alt="RDR2 Landscape"
+                        class="absolute top-0 left-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500"
+                        loading="lazy" />
+                    <div
+                        class="game-card-text absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-green-300 p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500">
+                        <h3 class="text-neon-g text-lg sm:text-xl font-bold">Red Dead Redemption 2</h3>
+                        <p class="text-xs sm:text-sm italic">Live the outlaw life in a vast wild west world.</p>
+                        <p class="text-yellow-400 font-semibold mt-1">$59.99</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Game Card: COD Black Ops 6 -->
+            <div
+                class="relative w-full max-w-[280px] sm:max-w-[300px] md:max-w-[324px] h-[420px] sm:h-[450px] md:h-[486px] mx-auto">
+                <div
+                    class="group absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-panel rounded-xl overflow-hidden transition-all duration-300 md:duration-500 hover:md:w-[460px] hover:md:h-[500px] hover:md:z-50">
+                    <img src="./assets/bo6p.jpg" alt="COD Portrait"
+                        class="w-full h-full object-cover transition-opacity duration-300 md:duration-500 group-hover:opacity-0"
+                        loading="lazy" />
+                    <img src="./assets/bo6.jpg" alt="COD Landscape"
+                        class="absolute top-0 left-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500"
+                        loading="lazy" />
+                    <div
+                        class="game-card-text absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-green-300 p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500">
+                        <h3 class="text-neon-g text-lg sm:text-xl font-bold">Call of Duty: Black Ops 6</h3>
+                        <p class="text-xs sm:text-sm italic">High-octane covert warfare across global hotspots.</p>
+                        <p class="text-yellow-400 font-semibold mt-1">$69.99</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Game Card: Detroit Become Human -->
+            <div
+                class="relative w-full max-w-[280px] sm:max-w-[300px] md:max-w-[324px] h-[420px] sm:h-[450px] md:h-[486px] mx-auto">
+                <div
+                    class="group absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-panel rounded-xl overflow-hidden transition-all duration-300 md:duration-500 hover:md:w-[460px] hover:md:h-[500px] hover:md:z-50">
+                    <img src="./assets/detroitp.jpg" alt="Detroit Portrait"
+                        class="w-full h-full object-cover transition-opacity duration-300 md:duration-500 group-hover:opacity-0"
+                        loading="lazy" />
+                    <img src="./assets/detroit.jpg" alt="Detroit Landscape"
+                        class="absolute top-0 left-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500"
+                        loading="lazy" />
+                    <div
+                        class="game-card-text absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-green-300 p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500">
+                        <h3 class="text-neon-g text-lg sm:text-xl font-bold">Detroit: Become Human</h3>
+                        <p class="text-xs sm:text-sm italic">Shape the future in a world of androids and choices.</p>
+                        <p class="text-yellow-400 font-semibold mt-1">$29.99</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Game Card: God of War Ragnarok -->
+            <div
+                class="relative w-full max-w-[280px] sm:max-w-[300px] md:max-w-[324px] h-[420px] sm:h-[450px] md:h-[486px] mx-auto">
+                <div
+                    class="group absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-panel rounded-xl overflow-hidden transition-all duration-300 md:duration-500 hover:md:w-[460px] hover:md:h-[500px] hover:md:z-50">
+                    <img src="./assets/gowrp.jpg" alt="GOW Portrait"
+                        class="w-full h-full object-cover transition-opacity duration-300 md:duration-500 group-hover:opacity-0"
+                        loading="lazy" />
+                    <img src="./assets/gow.jpg" alt="GOW Landscape"
+                        class="absolute top-0 left-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500"
+                        loading="lazy" />
+                    <div
+                        class="game-card-text absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-green-300 p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:duration-500">
+                        <h3 class="text-neon-g text-lg sm:text-xl font-bold">God of War: Ragnarök</h3>
+                        <p class="text-xs sm:text-sm italic">Clash with gods across Norse realms in an epic saga.</p>
+                        <p class="text-yellow-400 font-semibold mt-1">$49.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="mt-8 sm:mt-12 md:mt-16 px-2 sm:px-4 md:px-20">
+        <h2 class="text-2xl sm:text-3xl font-bold text-neon-g text-center mb-6 sm:mb-8 md:mb-10">What Gamers Say</h2>
+        <div class="space-y-4 sm:space-y-6">
+            <div class="bg-panel p-4 sm:p-5 md:p-6 rounded-xl shadow-md text-green-300">
+                <p class="text-xs sm:text-sm md:text-base mb-1 sm:mb-2">“Absolutely thrilling experience! The
+                    performance, the community, and the vibe — unmatched.”</p>
+                <span class="font-bold text-yellow-400 text-sm sm:text-base">Genny Mathew</span>
+            </div>
+            <div class="bg-panel p-4 sm:p-5 md:p-6 rounded-xl shadow-md text-green-300">
+                <p class="text-xs sm:text-sm md:text-base mb-1 sm:mb-2">“I’ve played on many platforms, but JUEGO hits
+                    different. Real-time action like no other.”</p>
+                <span class="font-bold text-yellow-400 text-sm sm:text-base">Jim</span>
+            </div>
+            <div class="bg-panel p-4 sm:p-5 md:p-6 rounded-xl shadow-md text-green-300">
+                <p class="text-xs sm:text-sm md:text-base mb-1 sm:mb-2">“JUEGO gave me the squad I never knew I needed.
+                    We’re on daily. It’s more than gaming.”</p>
+                <span class="font-bold text-yellow-400 text-sm sm:text-base">Parker</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="mt-8 sm:mt-12 md:mt-20 text-center px-2 sm:px-4">
+        <h2 class="text-2xl sm:text-3xl font-bold text-neon-g mb-2">Join Our Newsletter</h2>
+        <p class="text-green-400 text-xs sm:text-sm md:text-base mb-4 sm:mb-6">Sign up to receive exclusive deals,
+            updates & gaming drops</p>
+        <div
+            class="max-w-md sm:max-w-lg md:max-w-xl mx-auto flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center">
+            <input type="email" placeholder="Enter your email"
+                class="w-full sm:w-auto px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-panel text-green-200 border border-green-500 focus:outline-none focus:ring-2 focus:ring-neon-g"
+                id="newsletter-email" />
+            <button
+                class="btn-vintage text-panel font-bold px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:brightness-110 transition"
+                onclick="handleNewsletterSignup()">Subscribe</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-panel mt-8 sm:mt-12 p-4 sm:p-6 text-green-400 text-center rounded-xl">
+        <div>
+            <h3 class="text-lg sm:text-xl font-bold text-neon-g">JUEGO</h3>
+            <p class="text-xs sm:text-sm">Level up. Every day.</p>
+            <div class="mt-2 sm:mt-4 text-xs text-green-500">© 2025 JUEGO. Built for gamers, by gamers. All rights
+                reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile menu
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+            menu.classList.toggle('flex-col');
+            menu.classList.toggle('absolute');
+            menu.classList.toggle('top-12');
+            menu.classList.toggle('left-0');
+            menu.classList.toggle('bg-panel');
+            menu.classList.toggle('w-full');
+            menu.classList.toggle('p-4');
+        });
+
+        // Handle newsletter signup
+        function handleNewsletterSignup() {
+            const emailInput = document.getElementById('newsletter-email');
+            const email = emailInput.value;
+            if (email) {
+                alert('Thank you for subscribing with ' + email + '!');
+                emailInput.value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        }
+    </script>
+</body>
+
+</html>
